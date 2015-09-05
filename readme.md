@@ -1,7 +1,8 @@
 # Aurelia On Node
 
 This project demonstrates using aurelia with nodejs as a host and as a
-server for backend webservices.
+server for backend webservices.  Babel is used for compiling both the
+client and server code, so this gives you a full ES6 stack to write with.
 
 ## Running This
 
