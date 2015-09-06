@@ -1,0 +1,7 @@
+{
+  "main": "css",
+  "registry": "jspm",
+  "jspm": {
+    "registry": "jspm"
+  }
+}
