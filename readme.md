@@ -17,6 +17,5 @@ At the command line at the project root:
 
 ```
 npm install
-jspm install
 gulp
 ```
