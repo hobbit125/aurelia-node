@@ -19,3 +19,5 @@ At the command line at the project root:
 npm install
 gulp
 ```
+
+And you should be all set.
