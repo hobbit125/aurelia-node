@@ -1,0 +1,8 @@
+assets
+dist-client
+dist-server
+dist-interfaces
+jspm_packages
+node_modules
+./*.js
+./index.html

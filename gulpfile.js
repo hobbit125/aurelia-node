@@ -9,11 +9,18 @@ var del = require('del');
 var vinylPaths = require('vinyl-paths');
 var nodemon = require('gulp-nodemon');
 
+/*
+  Task to clean up the dist-client and dist-server
+  directories
+ */
 gulp.task('clean', function() {
   return gulp.src(['dist-client/', 'dist-server'])
     .pipe(vinylPaths(del));
 });
 
+/*
+  Task to compile server js code with babel
+ */
 gulp.task('build-server-js', function () {
   var compilerOptions = {
     modules: 'common',
@@ -32,6 +39,9 @@ gulp.task('build-server-js', function () {
     .pipe(gulp.dest('dist-server/'));
 });
 
+/*
+  Task to compile client js code with babel
+ */
 gulp.task('build-client-js', function () {
   var compilerOptions = {
     modules: 'system',
@@ -50,16 +60,26 @@ gulp.task('build-client-js', function () {
     .pipe(gulp.dest('dist-client/'));
 });
 
+/*
+  Task to copy client html files from src to dist
+ */
 gulp.task('build-client-html', function () {
   return gulp.src('src-client/**/*.html')
     .pipe(changed('dist-client/', {extension: '.html'}))
     .pipe(gulp.dest('dist-client/'));
 });
 
+/*
+  Task to clean and build the entire application
+ */
 gulp.task('build', function(callback) {
   return runSequence('clean', ['build-server-js', 'build-client-js', 'build-client-html'], callback);
 });
 
+/*
+  Task to start up the server with nodemon and
+  rebuild/restart if any source changes
+ */
 gulp.task('nodemon', ['build'], function () {
   nodemon({
     watch: ['./src-client', './src-server'],
@@ -69,4 +89,7 @@ gulp.task('nodemon', ['build'], function () {
   });
 });
 
+/*
+  Point default task to nodemon
+ */
 gulp.task('default', ['nodemon']);

@@ -1,7 +1,21 @@
+<!--
+  This is the view for our root application view
+  This view defines content surrounding all pages within our view
+  and specifies the point where child pages should be injected
+  with the <router-view> tag
+-->
 <template>
+  <!-- These tags let us include third-party css files from JSPM packages
+       without needing to worry about the version part of the path
+       that can change as we update to new version of our libraries  -->
+  <require from="font-awesome/css/font-awesome.min.css"></require>
+  <require from="bootstrap/css/bootstrap.min.css"></require>
+
   <div class="container">
     <div class="site-body">
+      <!-- This is where our child views ("pages") will be rendered -->
       <router-view></router-view>
     </div>
   </div>
+
 </template>
